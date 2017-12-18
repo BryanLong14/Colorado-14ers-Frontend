@@ -1,0 +1,19 @@
+h1 {
+  color: blue;
+  font-size: 3rem;
+  text-align: center;
+}
+
+h2 {
+  color: gray;
+  font-size: 2rem;
+}
+
+p {
+  color: white;
+  font-size: 1rem;
+}
+
+* {
+  background-color: black;
+}
