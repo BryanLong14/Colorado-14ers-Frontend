@@ -37,11 +37,11 @@ function fetchData(resp) {
   let finalArray = []
   for (var i = 0; i < resp.length; i++) {
     if (
-      resp[i].new_attributes.difficulty === difficulty
+      // resp[i].new_attributes.difficulty === difficulty
       // &&
       resp[i].new_attributes.lengthOfHike === length
-      &&
-      resp[i].new_attributes.distance === distance
+      // &&
+      // resp[i].new_attributes.distance === distance
 
     ){
       peakArray.push(resp[i])
