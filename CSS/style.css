@@ -1,19 +1,9 @@
-h1 {
-  color: blue;
-  font-size: 3rem;
-  text-align: center;
-}
-
-h2 {
-  color: gray;
-  font-size: 2rem;
-}
-
-p {
-  color: white;
-  font-size: 1rem;
-}
-
-* {
-  background-color: #49ABE8;
+background {
+  top: 0;
+  left: 0;
+  right: 0;
+  background: url(Assets/website-background-blank-small.png) center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*background-color: black;*/
 }
