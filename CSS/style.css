@@ -7,3 +7,15 @@ background {
   background-size: cover;
   /*background-color: black;*/
 }
+
+.form-style-1 {
+  /* Add styling here for elements returning from form selection   */
+  padding: .5rem;
+  padding-top: 1rem;
+  border: thin solid black;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

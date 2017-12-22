@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>14ers Search</title>
-  <!-- <link rel="stylesheet" href="CSS/reset.css">
-   <link rel="stylesheet" href="CSS/style.css"> -->
+  <link rel="stylesheet" href="CSS/reset.css">
+  <link rel="stylesheet" href="CSS/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-CF64UnUzxV691sOmqagn+TQJmesKn1fgsYmlIPqYB5nm0m32jYo3LiX1BcrbuESZ" crossorigin="anonymous">
 </head>
@@ -46,16 +46,20 @@
       <label class="label" for="location">Distance From Denver and the Front Range</label>
       <select class="form-control" id="distance_selector" name="Difficulty">
       <option value="">Select an option here</option>
-      <option value="close">Close to Denver</option>
-      <option value="far">Far From Denver</option>
+      <option value="close">Close to Denver (less than 4 hours one way)</option>
+      <option value="far">Far From Denver (over 4 hours one way)</option>
       <p>Note: Most of our users live near Denver. If you woul dlike more felxible search options, choose our Advanced Search Below</p>
     </select>
     </div>
     <div class="form-group">
       <!-- type="button" class="btn btn-success" -->
       <button type="submit" class="btn btn-success">Submit</button>
-      <p id="response"></p>
     </div>
+    <div class="peak-list">
+        <form class="" action="index.html" method="post">
+        </form>
+    </div>
+
   </form>
   <div class="form-group mx-auto" style="width: 60%;">
     <p>Want more search options? Try our </p>
