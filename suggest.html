@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>14ers Search</title>
+  <title>Frontend</title>
   <link rel="stylesheet" href="CSS/reset.css">
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="icon" href="Assets/MountainFaviconBlue.png" type="image/png">
@@ -17,12 +17,22 @@
     <h3>Demystifying the Difficulty of Colorado’s 14ers</h2>
     <p>Links you directly to 14er routes based on your desired difficulty, route length, and location so you can quickly choose a peak that’s a great fit for you... and your friends.</p>
   </div>
+
+  <div class="form-suggest">
+       <h3>Suggest a Question</h3>
+       <form class="suggest" action="#" method="post">
+         <label for="suggestion">Question Suggestion:</label>
+         <textarea name="suggestion" rows="7"></textarea>
+         <input id="suggestion"type="submit" name="submit" value="Submit Question">
+       </form>
+       <p id="response"></p>
+     </div>
+
+
   <div class="mx-auto">
     <a href="./start.html" type="button" class="btn btn-outline-primary">Find a Hike</a>
-    <!-- <a href="./advanced.html" type="button" class="btn btn-outline-primary">Advanced Search</a> -->
   </div>
-  <script src="JS/app.js" charset="utf-8"></script>
-
+  <script type="text/javascript" src= "JS/suggest.js"></script>
 </body>
 
 </html>

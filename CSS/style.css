@@ -9,6 +9,10 @@
   --font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+#map_canvas {
+  display: none;
+}
+
 a {
   color: #1a1a1a;
   text-decoration: none;
@@ -51,28 +55,6 @@ pre {
   white-space: pre-wrap !important;
 }
 
-pre, blockquote {
-  border: 1px solid #999;
-  page-break-inside: avoid;
-}
-
-thead {
-  display: table-header-group;
-}
-
-tr, img {
-  page-break-inside: avoid;
-}
-
-p, h2, h3 {
-  orphans: 3;
-  widows: 3;
-}
-
-h2, h3 {
-  page-break-after: avoid;
-}
-
 .navbar {
   display: none;
 }
@@ -102,7 +84,7 @@ h2, h3 {
 
 .peak-list {
   text-align: center;
-  }
+}
 
 html {
   font-family: sans-serif;
@@ -138,11 +120,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 h1, .h1 {
-  font-size: 2rem;
+  font-size: 4rem;
 }
 
 h2, .h2 {
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 h3, .h3 {
@@ -165,6 +147,7 @@ h6, .h6 {
   display: inline-block;
   margin-top: 1rem;
   margin-bottom: .5rem;
+  background: white;
 }
 
 .form-style-1 {
@@ -192,7 +175,8 @@ h6, .h6 {
   user-select: none;
   border: 1px solid transparent;
   padding: 1rem 2rem;
-  margin: 1rem;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
   font-size: 1rem;
   text-transform: uppercase;
   line-height: 1.5;
@@ -228,12 +212,12 @@ a.btn.disabled, fieldset[disabled] a.btn {
 .btn-success {
   color: #fff;
   background-color: #4BBF73;
-  border-color: #4BBF73;
+  border-color: black;
 }
 
 .btn-success:hover {
   color: #fff;
-  background-color: #3ca861;
+  background-color: #34dd6e;
   border-color: #389f5c;
 }
 
@@ -261,7 +245,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .jumbotron {
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .mx-auto {
@@ -380,8 +364,7 @@ body {
   }
 }
 
-@media  (min-width: 601px)
-  and (max-width: 900px) {
+@media (min-width: 601px) and (max-width: 900px) {
   body {
     background-image: url(../Assets/2.png);
   }

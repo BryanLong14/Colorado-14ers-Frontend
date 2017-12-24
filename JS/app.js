@@ -1,12 +1,14 @@
 const mergedAPI = "https://peaceful-crag-92814.herokuapp.com/merged"
 const form = document.getElementById('form');
 var peakList = document.querySelector(".peak-list");
+// var peakMap = document.getElementById('map_canvas');
 
 let difficulty;
 let length;
 let distance;
 
 form.addEventListener('submit', postForm);
+// form.addEventListener('submit', displayMap);
 
 // Objective: Get users's form input search criteria from start.html and return to them a selection of data
 function postForm(event) {
@@ -38,10 +40,8 @@ function fetchData(resp) {
     ) {
       peakArray.push(resp[i])
     }
-
   }
   console.log(peakArray);
-
 
   // Populate Answers to peak-list DIV on start.html
   for (var i = 0; i < peakArray.length; i++) {
@@ -51,14 +51,22 @@ function fetchData(resp) {
     peakName.innerText = peakArray[i].attributes.peak_name;
     newPeakCard.appendChild(peakName);
     var peakRank = document.createElement("p");
-    peakRank.innerText = "This peak is located in the " + peakArray[i].attributes.range + " and is " + peakArray[i].attributes.elevation + " feet tall. It is the " + peakArray[i].attributes.rank + " highest mountain in the state. The closest towns to the trailhead are: " + peakArray[i].attributes.towns + ".";
+    peakRank.innerText = "This peak is located in the " + peakArray[i].attributes.range +
+      " and is " + peakArray[i].attributes.elevation +
+      " feet tall. It is the " + peakArray[i].attributes.rank +
+      " highest mountain in the state. The closest towns to the trailhead are: " + peakArray[i].attributes.towns +
+      ". The hike up the " + peakArray[i].new_attributes.standard_route +
+      " is the standard route. It is " + peakArray[i].new_attributes.roundtrip_distance +
+      " miles roundtrip and is a class " + peakArray[i].new_attributes.class +
+      " hike.";
     newPeakCard.appendChild(peakRank);
     var addLink = document.createElement("a");
-    addLink.innerText = "The hike up the " + peakArray[i].new_attributes.standard_route + " is " + peakArray[i].new_attributes.roundtrip_distance + " miles roundtrip. Click on this link to read about the route description and decide if it is a good hike for you.";
+    addLink.innerText = "Click on this link to read about the route description and decide if it is a good hike for you.";
     addLink.href = peakArray[i].new_attributes.link;
+    addLink.setAttribute("target", "_blank");
     newPeakCard.appendChild(addLink);
     peakList.appendChild(newPeakCard);
-    document.body.style.backgroundImage = "url('../Assets/1.png')";
-    document.body.style.height = "auto";
   }
+  document.body.style.backgroundImage = "url('../Assets/1.png')";
+  document.body.style.height = "auto";
 }
