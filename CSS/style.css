@@ -1,15 +1,174 @@
-background {
-  top: 0;
-  left: 0;
-  right: 0;
-  background: url(Assets/website-background-blank-small.png) center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /*background-color: black;*/
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600");
+:root {
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+a {
+  color: #1a1a1a;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([href]):not([tabindex]):focus {
+  outline: 0;
+}
+
+a, a:visited {
+  text-decoration: underline;
+}
+
+abbr[title]::after {
+  content: " (" attr(title) ")";
+}
+
+pre {
+  white-space: pre-wrap !important;
+}
+
+pre, blockquote {
+  border: 1px solid #999;
+  page-break-inside: avoid;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tr, img {
+  page-break-inside: avoid;
+}
+
+p, h2, h3 {
+  orphans: 3;
+  widows: 3;
+}
+
+h2, h3 {
+  page-break-after: avoid;
+}
+
+.navbar {
+  display: none;
+}
+
+.badge {
+  border: 1px solid #000;
+}
+
+.table {
+  border-collapse: collapse !important;
+}
+
+.table td, .table th {
+  background-color: #fff !important;
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #ddd !important;
+}
+
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.peak-list {
+  text-align: center;
+  }
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #919aa1;
+  text-align: left;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #1a1a1a;
+}
+
+h1, .h1 {
+  font-size: 2rem;
+}
+
+h2, .h2 {
+  font-size: 1.75rem;
+}
+
+h3, .h3 {
+  font-size: 1.5rem;
+}
+
+h4, .h4 {
+  font-size: 1.25rem;
+}
+
+h5, .h5 {
+  font-size: 1rem;
+}
+
+h6, .h6 {
+  font-size: 0.75rem;
+}
+
+.label {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
 }
 
 .form-style-1 {
-  /* Add styling here for elements returning from form selection   */
+  text-align: center;
   padding: .5rem;
   padding-top: 1rem;
   border: thin solid black;
@@ -18,4 +177,215 @@ background {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: white;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  line-height: 1.5;
+  border-radius: 0;
+  -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.btn:focus, .btn:hover {
+  text-decoration: none;
+}
+
+.btn:focus, .btn.focus {
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.25);
+}
+
+.btn.disabled, .btn:disabled {
+  opacity: .65;
+}
+
+.btn:not([disabled]):not(.disabled):active, .btn:not([disabled]):not(.disabled).active {
+  background-image: none;
+}
+
+a.btn.disabled, fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #4BBF73;
+  border-color: #4BBF73;
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color: #3ca861;
+  border-color: #389f5c;
+}
+
+.btn-success:focus, .btn-success.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(75, 191, 115, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(75, 191, 115, 0.5);
+}
+
+.btn-outline-primary {
+  color: #1a1a1a;
+  background-color: white;
+  background-image: none;
+  border-color: #1a1a1a;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.btn-outline-primary:focus, .btn-outline-primary.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.5);
+}
+
+.jumbotron {
+  padding: 3rem;
+}
+
+.mx-auto {
+  text-align: center;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 2rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #55595c;
+  background-color: #f7f7f9;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0;
+  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.form-control::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+.form-control:focus {
+  color: #55595c;
+  background-color: #f7f7f9;
+  border-color: #5a5a5a;
+  outline: none;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.25);
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #919aa1;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #919aa1;
+  opacity: 1;
+}
+
+.form-control::-ms-input-placeholder {
+  color: #919aa1;
+  opacity: 1;
+}
+
+.form-control::placeholder {
+  color: #919aa1;
+  opacity: 1;
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: #eceeef;
+  opacity: 1;
+}
+
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.8125rem + 2px);
+}
+
+select.form-control:focus::-ms-value {
+  color: #55595c;
+  background-color: #f7f7f9;
+}
+
+.form-control-file, .form-control-range {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+body {
+  height: 100vh;
+  background-image: url(../Assets/1.png);
+  resize: both;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  overflow: auto;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-image: url(../Assets/3.png);
+  }
+  .jumbotron {
+    padding: .5rem;
+  }
+  html {
+    font-size: 90%;
+  }
+}
+
+@media  (min-width: 601px)
+  and (max-width: 900px) {
+  body {
+    background-image: url(../Assets/2.png);
+  }
+  .jumbotron {
+    padding: 1.5rem;
+  }
 }

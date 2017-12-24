@@ -6,24 +6,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Advanced 14ers Search</title>
-  <!-- <link rel="stylesheet" href="CSS/reset.css"> -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-CF64UnUzxV691sOmqagn+TQJmesKn1fgsYmlIPqYB5nm0m32jYo3LiX1BcrbuESZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="CSS/reset.css">
   <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
-  <div class="jumbotron">
-    <h1>14ers Advanced Search</h1>
+  <div class="backgroundImage jumbotron">
+    <h1>14ers Advanced Search Tool</h1>
     <h3>Demystifying the Difficulty of Colorado’s 14ers</h2>
-  </div>
-  <div class="mx-auto" style="width: 60%;">
     <p>Links you directly to 14er routes based on your desired difficulty, route length, and location so you can quickly choose a peak that’s a great fit for you... and your friends.</p>
-    <a href="./start.html" type="button" class="btn btn-outline-primary">Basic Search</a>
   </div>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <form id="form" method="POST" class="mx-auto" style="width: 60%;">
+    <!-- Drop down selector for difficulty -->
+    <div class="form-group">
+      <label class="label" for="difficulty">Difficulty</label>
+      <select class="form-control" id="difficulty_selector" name="difficulty">
+      <option value="">Select an option here</option>
+      <option value="easier">Class 1-2</option>
+      <option value="moderate">Class 3</option>
+      <option value="hard">Class 4-5</option>
+    </select>
+    </div>
+    <!-- Drop down selector for length of hike -->
+    <div class="form-group">
+      <label class="label" for="length">Length of Hike</label>
+      <select class="form-control" id="length_of_hike" name="length">
+      <option value="">Select an option here</option>
+      <option value="shorter">Shorter (less than 9 miles round-trip)</option>
+      <option value="medium">Medium (between 8 and 14 miles round-trip)</option>
+      <option value="longer">Longer (longer than 13 miles round-trip)</option>
+    </select>
+    </div>
+    <!-- Drop down selector for location of peak -->
+    <div class="form-group">
+      <label class="label" for="location">Mountain Range</label>
+      <select class="form-control" id="distance_selector" name="Difficulty">
+      <option value="">Select an option here</option>
+      <option value="close">Close to Denver (less than 4 hours one way)</option>
+      <option value="far">Far From Denver (over 4 hours one way)</option>
+      </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success mx-auto">Submit</button>
+        <p class="label">Want fewer search criteria? Try our </p>
+        <a href="./start.html" type="button" class="btn btn-outline-primary">Basic Search</a>
+      </div>
+    <div class="peak-list">
+      <form class="" action="index.html" method="post">
+      </form>
+    </div>
+  </form>
   <script src="JS/app.js" charset="utf-8"></script>
 </body>
 
