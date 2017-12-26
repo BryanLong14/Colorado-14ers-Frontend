@@ -11,35 +11,45 @@
 </head>
 
 <body>
-  <div class="backgroundImage jumbotron">
+  <div class="backgroundImage jumbotron2">
     <h2>About 14ers Search Tool</h2>
     <h4>
-      Interested in hiking a Colorado 14er, but not sure which peak matches you abilities, current location, and desired route length? <i>Can I Climb That?</i> links you directly to 14er route descriptions based on search criteria so you can quickly choose a peak that’s a great fit for you and your friends.
+      <!-- Interested in hiking a Colorado 14er, but not sure which peak matches you abilities, current location, and desired route length? <i>Can I Climb That</i> links you directly to 14er route descriptions based on search criteria so you can quickly choose a peak that’s a great fit for you and your friends. -->
     </h4>
-    <ul>
-      <p>I created the database for this website by combining information from this <a href="https://github.com/kateheese/14er-api" target="_blank">14ers API</href></a> with route information from <a href="https://www.14ers.com/" target="_blank">14ers.com</href></a>        The metholdology I used for sorting and returning search criteria is as follows:</p>
-      <li>Difficulty groupings were set based on a combination of the class of the route and group consensus from <a href="https://www.14ers.com/routes_bydifficulty.php" target="_blank">14ers.com</href></a>. Class 1 routes and easy class 2 routes get returned
-        as "Easy". More difficult class 2 routes get returned as "Moderate" peaks, and class 3 and 4 routes get returned as "Hard". Obviously these ratings are subjective and are meant as a guide for hikers who are relatively new to the sport.</li>
-        <li>Elevation and peak ranking data was taken from <a href="https://www.14ers.com/routes_bydifficulty.php" target="_blank">14ers.com</href></a></li>
+    <p>I created the database for this website by combining information from this <a href="https://github.com/kateheese/14er-api" target="_blank">14ers API</href></a> with route information from <a href="https://www.14ers.com/" target="_blank">14ers.com</href></a>      The metholdology I used for sorting and returning search criteria is as follows:
+      <ul>
+        <li>Difficulty levels were grouped according to a combination of the class of the route and community consensus from <a href="https://www.14ers.com/routes_bydifficulty.php" target="_blank">14ers.com</href></a>. Class 1 routes and easy class 2 routes
+          get returned as "Easy". More difficult class 2 routes get returned as "Moderate" peaks, and class 3 and 4 routes get returned as "Hard". Obviously these ratings are subjective and are meant as a guide for hikers who are relatively new to the
+          sport.
+        </li>
+        <li>Elevation and peak ranking data was taken from <a href="https://www.14ers.com/routes_bydifficulty.php" target="_blank">14ers.com</href></a>. Currently only the standard routes on each peak show up in the search results. I am considering adding
+          data for non-standard routes.</li>
         <li>Sorting peaks based on distance from Denver is an obviously contentious decision. I decided to split the 14ers into two groups based on their distance from Denver simply because the majority of hikers who would use this tool live near the Front
-          Range. Some peaks (such as the Elk Mountains near Aspen) show up in both the "close" and "far" search criteria because their trailheads are at the cutoff of 4 hours driving.</li>
-        <li>Regarding the sorting methodology for length of hike, I wanted users to have access to a wider range of routes, hence the distance overlap between categories. The distance breakdown is as follows, and is based on the roundtrip distance from trailhead
-          to summit:
+          Range. Some peaks (such as the Elk Mountains near Aspen) show up in both the "close" and "far" search criteria because their trailheads are right around the cutoff of 4 hours driving time.</li>
+        <li>Regarding the sorting methodology for length of hike, I wanted users to have access to a wider range of routes, hence the distance overlap between categories. The distance breakdown, which is based on the roundtrip distance from trailhead to summit,
+          is as follows:
           <ol>
             <li>Shorter (less than 9 miles round-trip)</li>
             <li>Medium (between 8 and 14 miles round-trip)</li>
             <li>Longer (more than 13 miles round-trip)</li>
           </ol>
         </li>
-
-    </ul>
-    <div id="suggest">
-      <a href="suggest.html">Suggest a Question</a>
-    </div>
     </p>
+    </ul>
   </div>
-
-  <script src="JS/app.js" charset="utf-8"></script>
+  <div class="mx-auto">
+    <form class="suggest" action="#" method="post">
+      <label class="h4" for="suggestion">Suggest a Route or Ask the Developer a Question</label>
+      <textarea name="suggestion" rows="5" class="suggest"></textarea>
+      <input id="suggestion" type="submit" name="submit" class="btn btn-success" value="Submit Question">
+    </form>
+    <p id="response"></p>
+    <a href="./start.html" type="button" class="btn btn-outline-primary">Return to Find a Hike</a>
+  </div>
+  <script type="text/javascript" src="JS/suggest.js"></script>
+</body>
+</p>
+<script src="JS/app.js" charset="utf-8"></script>
 </body>
 
 </html>

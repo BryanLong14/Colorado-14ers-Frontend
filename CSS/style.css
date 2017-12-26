@@ -20,6 +20,18 @@ a {
   -webkit-text-decoration-skip: objects;
 }
 
+.boxsizingBorder {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.suggest {
+  width: 90%;
+  text-align: center;
+  display: inline-block;
+}
+
 a:link {
   text-decoration: none;
 }
@@ -150,6 +162,11 @@ h6, .h6 {
   background: white;
 }
 
+.label-margin2 {
+  display: inline-block;
+  background: white;
+}
+
 .form-style-1 {
   text-align: center;
   padding: .5rem;
@@ -175,8 +192,6 @@ h6, .h6 {
   user-select: none;
   border: 1px solid transparent;
   padding: 1rem 2rem;
-  margin-top: 1rem;
-  margin-bottom: .5rem;
   font-size: 1rem;
   text-transform: uppercase;
   line-height: 1.5;
@@ -185,6 +200,12 @@ h6, .h6 {
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.btn-margin1
+{
+  margin-top: 1rem;
+  margin-bottom: .5rem;
 }
 
 .btn:focus, .btn:hover {
@@ -246,6 +267,10 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .jumbotron {
   padding: 2rem;
+}
+
+.jumbotron2 {
+  padding: 2rem 2rem 0rem 2rem;
 }
 
 .mx-auto {

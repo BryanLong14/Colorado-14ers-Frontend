@@ -30,7 +30,7 @@ function sendPost(submission){
 function postResponse(response) {
   let success= Object.keys(response)[0];
   let question= Object.values(Object.values(response)[0])[0];
-  let newResponse= document.createTextNode(success +": " + question);
+  let newResponse= document.createTextNode(success + ": " + question);
   responseShow.appendChild(newResponse);
 };
 
