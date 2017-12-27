@@ -1,14 +1,12 @@
 const mergedAPI = "https://peaceful-crag-92814.herokuapp.com/merged"
 const form = document.getElementById('form');
 var peakList = document.querySelector(".peak-list");
-// var peakMap = document.getElementById('map_canvas');
 
 let difficulty;
 let length;
 let distance;
 
 form.addEventListener('submit', postForm);
-// form.addEventListener('submit', displayMap);
 
 // Objective: Get users's form input search criteria from start.html and return to them a selection of data
 function postForm(event) {

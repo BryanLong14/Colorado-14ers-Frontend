@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>14ers Search</title>
-  <link rel="stylesheet" href="CSS/style.css">
+  <!-- <link rel="stylesheet" href="CSS/reset.css"> -->
+<link rel="stylesheet" href="CSS/style.css">
   <link rel="icon" href="Assets/MountainFaviconBlue.png" type="image/png">
 </head>
 
@@ -38,16 +39,12 @@
     </ul>
   </div>
   <div class="mx-auto">
-    <form id="form" method="POST" action="#">
-      <!-- class="suggest" -->
-      <label for="suggestion">Suggest a Route or Ask the Developer a Question</label>
-      <!-- class="h4" -->
-      <textarea name="suggestion" rows="5"></textarea>
-      <!-- class="suggest" -->
-      <input id="suggestion" type="submit" name="submit" value="Submit">
-      <!-- class="btn btn-success"  -->
+    <form id="form" class="suggest" method="POST" action="#">
+      <label class="h4" for="suggestion">Suggest a Route or Ask the Developer a Question</label>
+      <textarea class="suggest" name="suggestion" rows="5"></textarea>
+      <input id="suggestion" class="btn btn-success" type="submit" name="submit" value="Submit">
     </form>
-    <p id="response">here?</p>
+    <p class="btn-outline-primary" id="response"></p>
     <a href="./start.html" type="button" class="btn btn-outline-primary">Return to Find a Hike</a>
   </div>
   <script type="text/javascript" src="JS/suggest.js"></script>

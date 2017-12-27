@@ -9,6 +9,11 @@
   --font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+body {
+  margin: 0;
+  border: 0;
+}
+
 #map_canvas {
   display: none;
 }
@@ -21,15 +26,28 @@ a {
 }
 
 .boxsizingBorder {
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .suggest {
   width: 90%;
   text-align: center;
   display: inline-block;
+}
+
+p, li {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+ul {
+  list-style-type: disc;
+  margin:0;
+}
+li {
+  display: list-item;
 }
 
 a:link {
@@ -173,6 +191,7 @@ h6, .h6 {
   padding-top: 1rem;
   border: thin solid black;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -202,8 +221,7 @@ h6, .h6 {
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
-.btn-margin1
-{
+.btn-margin1 {
   margin-top: 1rem;
   margin-bottom: .5rem;
 }
@@ -270,7 +288,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .jumbotron2 {
-  padding: 2rem 2rem 0rem 2rem;
+  padding: 1rem 2rem 0rem 2rem;
 }
 
 .mx-auto {
