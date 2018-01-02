@@ -6,9 +6,12 @@ let difficulty;
 let length;
 let distance;
 
+// Do we need to instantiate peakArray outside function? If so, remove second instance below
+let peakArray = [];
+
 form.addEventListener('submit', postForm);
 
-// Objective: Get users's form input search criteria from start.html and return to them a selection of data
+//Get users' form input search criteria from start.html and return to them a selection of data
 function postForm(event) {
   event.preventDefault();
   peakList.innerHTML = '';
@@ -22,12 +25,17 @@ function postForm(event) {
 function getData() {
   fetch(mergedAPI)
     .then(resp => resp.json())
-    .then(fetchData)
+    .then(resp => {
+      fetchData(resp)
+      // console.log(resp);
+    })
+    .catch(err => console.log(err));
+  // .then(fetchData)
+  // .then(addMarker)
 }
 
 // Sort through data according to parameters (some peaks come up in two searches)
 function fetchData(resp) {
-  let peakArray = []
   for (var i = 0; i < resp.length; i++) {
     if (
       resp[i].new_attributes.difficulty === difficulty &&
@@ -37,9 +45,9 @@ function fetchData(resp) {
         resp[i].new_attributes.lengthOfHike2 === length)
     ) {
       peakArray.push(resp[i])
+      document.querySelector('#map').style.display = ""
     }
   }
-  console.log(peakArray);
 
   // Populate Answers to peak-list DIV on start.html
   for (var i = 0; i < peakArray.length; i++) {
@@ -67,4 +75,96 @@ function fetchData(resp) {
   }
   document.body.style.backgroundImage = "url('../Assets/1.png')";
   document.body.style.height = "auto";
+  // Trying to figure out where to close final curly brace. If here, the initMap will load, but how do we get it to then populate with the markers?
+
+  console.log(peakArray);
+  // console.log(peakArray[2].attributes.latitude);
+
+  // Create the map here
+  initMap()
+
+
+
+}
+
+
+// Creates the Google Map
+function initMap() {
+  var latlng = new google.maps.LatLng(39.117777, -106.44472);
+  var myOptions = {
+    zoom: 7,
+    center: latlng,
+    mapTypeId: google.maps.MapTypeId.SATELITE
+  }
+  map = new google.maps.Map(document.getElementById("map"), myOptions);
+  addMarker(map, peakArray)
+}
+
+//
+// function addMarker() {
+//   var marker, i
+//   for (var i = 0; i < peakArray.length; ++i) {
+//     var image = 'Assets/MountainFaviconBlue.png'
+//     var name = peakArray[i].attributes.peak_name;
+//     var elevation = peakArray[i].attributes.elevation;
+//     var link = peakArray[i].new_attributes.link;
+//     var coordsLat = peakArray[i].attributes.latitude;
+//     var coordsLong = peakArray[i].attributes.longitude;
+//     var latLng = new google.maps.LatLng(coordsLat, coordsLong);
+//     var marker = new google.maps.Marker({
+//       title: name,
+//       position: latLng,
+//       map: map,
+//       icon: image,
+//     });
+//     // Try to set map position in the line below here
+//     // map.setCenter(marker.getPosition())
+//     // Add Info Window Tags to Markers
+//       '<h3>' + name + '</h3>' +
+//       '<p>Elevation of ' + elevation + ' feet.</p>' +
+//       '</div>'
+//     var infowindow = new google.maps.InfoWindow()
+//     google.maps.event.addListener(marker, 'click',
+//       function(marker, content, infowindow) {
+//         return function() {
+//           infowindow.setContent(content);
+//           infowindow.open(map, marker);
+//         };
+//       }(marker, content, infowindow));
+//   }
+// }
+
+
+// Add Initital Map Markers
+function addMarker() {
+  var marker, i
+  for (var i = 0; i < peakArray.length; ++i) {
+    var image = 'Assets/MountainFaviconBlue.png'
+    var name = peakArray[i].attributes.peak_name;
+    var elevation = peakArray[i].attributes.elevation;
+    var link = peakArray[i].new_attributes.link;
+    var coordsLat = peakArray[i].attributes.latitude;
+    var coordsLong = peakArray[i].attributes.longitude;
+    var latLng = new google.maps.LatLng(coordsLat, coordsLong);
+    var marker = new google.maps.Marker({
+      title: name,
+      position: latLng,
+      map: map,
+      icon: image,
+    });
+    // Try to set map position in the line below here
+    // map.setCenter(marker.getPosition())
+    // Add Info Window Tags to Markers
+    var content = '<div class="info_content">' +
+      '<h3>' + name + '</h3>' +
+      '<p>Elevation of ' + elevation + ' feet.</p>' +
+      '</div>'
+    var infowindow = new google.maps.InfoWindow()
+    google.maps.event.addListener(marker, 'click', function(marker, content, infowindow) {
+      return function() {
+        infowindow.setContent(content);
+        infowindow.open(map, marker);
+      };
+    }(marker, content, infowindow));
+  }
 }
