@@ -1,6 +1,6 @@
 const mergedAPI = "https://peaceful-crag-92814.herokuapp.com/merged";
 const form = document.getElementById('form');
-var peakList = document.querySelector(".peak-list");
+var peakList = document.querySelector('.peak-list');
 
 var difficulty;
 var length;
@@ -9,11 +9,13 @@ var peakArray = [];
 var marker;
 
 
-//Get form input criteria from start.html
+//Get form input criteria from search.html
 form.addEventListener('submit', postForm);
 
 function postForm(event) {
   event.preventDefault();
+  // Next two lines reset previous search criteria, emptying peakList
+  peakArray = [];
   peakList.innerHTML = '';
   difficulty = event.target[0].value;
   length = event.target[1].value;
