@@ -5,8 +5,9 @@ This app links users directly to Colorado Hiking routes on "14ers" (mountains wi
 
 <h2><a href="https://colorado-14ers-search.firebaseapp.com/">Deployed App</a></h2>
 
-<a href="https://github.com/BryanLong14/Colorado-14ers-backend">Backend Server-side Code</a>
-<a href="https://github.com/BryanLong14/Colorado-14ers-Frontend">Frontend Client-side Code</a>
-<a href="https://peaceful-crag-92814.herokuapp.com/suggestions">See Suggestions and Comments</a> 
+<a href="https://github.com/BryanLong14/Colorado-14ers-backend">Backend Server-side Code</a><br>
+<a href="https://github.com/BryanLong14/Colorado-14ers-Frontend">Frontend Client-side Code</a><br>
+<a href="https://peaceful-crag-92814.herokuapp.com/suggestions">See Suggestions and Comments</a> <br>
 
+<h2>App Demo</h2>
 ![Alt Text](https://github.com/BryanLong14/Colorado-14ers-Frontend/blob/master/Assets/gif.gif)
