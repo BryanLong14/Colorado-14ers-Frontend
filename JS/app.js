@@ -1,17 +1,17 @@
-const mergedAPI = "https://peaceful-crag-92814.herokuapp.com/merged"
+const mergedAPI = "https://peaceful-crag-92814.herokuapp.com/merged";
 const form = document.getElementById('form');
 var peakList = document.querySelector(".peak-list");
 
-let difficulty;
-let length;
-let distance;
+var difficulty;
+var length;
+var distance;
+var peakArray = [];
+var marker;
 
-// Do we need to instantiate peakArray outside function? If so, remove second instance below
-let peakArray = [];
 
+//Get form input criteria from start.html
 form.addEventListener('submit', postForm);
 
-//Get users' form input search criteria from start.html and return to them a selection of data
 function postForm(event) {
   event.preventDefault();
   peakList.innerHTML = '';
@@ -21,20 +21,17 @@ function postForm(event) {
   getData();
 }
 
-// returning large mergedArray data
+// Access large mergedArray database
 function getData() {
   fetch(mergedAPI)
     .then(resp => resp.json())
     .then(resp => {
       fetchData(resp)
-      // console.log(resp);
     })
     .catch(err => console.log(err));
-  // .then(fetchData)
-  // .then(addMarker)
 }
 
-// Sort through data according to parameters (some peaks come up in two searches)
+// Sort through returned mergedArray database according to user's input parameters (some peaks come up in two searches)
 function fetchData(resp) {
   for (var i = 0; i < resp.length; i++) {
     if (
@@ -49,7 +46,7 @@ function fetchData(resp) {
     }
   }
 
-  // Populate Answers to peak-list DIV on start.html
+  // Populate returned data to start.html by creating a newPeakCard for each returned response
   for (var i = 0; i < peakArray.length; i++) {
     var newPeakCard = document.createElement("div");
     newPeakCard.classList.add("form-style-1");
@@ -67,7 +64,7 @@ function fetchData(resp) {
       " hike.";
     newPeakCard.appendChild(peakRank);
     var addLink = document.createElement("a");
-    addLink.innerText = "Click on this link to read about the route description and decide if it is a good hike for you.";
+    addLink.innerText = "Read the route description here.";
     addLink.href = peakArray[i].new_attributes.link;
     addLink.setAttribute("target", "_blank");
     newPeakCard.appendChild(addLink);
@@ -75,69 +72,26 @@ function fetchData(resp) {
   }
   document.body.style.backgroundImage = "url('../Assets/1.png')";
   document.body.style.height = "auto";
-  // Trying to figure out where to close final curly brace. If here, the initMap will load, but how do we get it to then populate with the markers?
-
   console.log(peakArray);
-  // console.log(peakArray[2].attributes.latitude);
 
-  // Create the map here
+  // Create the map here - function invocation
   initMap()
-
-
-
 }
 
-
-// Creates the Google Map
+// The Google Map Logic
 function initMap() {
   var latlng = new google.maps.LatLng(39.117777, -106.44472);
   var myOptions = {
-    zoom: 7,
+    zoom: 8,
     center: latlng,
-    mapTypeId: google.maps.MapTypeId.SATELITE
+    mapTypeId: "terrain"
   }
   map = new google.maps.Map(document.getElementById("map"), myOptions);
   addMarker(map, peakArray)
 }
 
-//
-// function addMarker() {
-//   var marker, i
-//   for (var i = 0; i < peakArray.length; ++i) {
-//     var image = 'Assets/MountainFaviconBlue.png'
-//     var name = peakArray[i].attributes.peak_name;
-//     var elevation = peakArray[i].attributes.elevation;
-//     var link = peakArray[i].new_attributes.link;
-//     var coordsLat = peakArray[i].attributes.latitude;
-//     var coordsLong = peakArray[i].attributes.longitude;
-//     var latLng = new google.maps.LatLng(coordsLat, coordsLong);
-//     var marker = new google.maps.Marker({
-//       title: name,
-//       position: latLng,
-//       map: map,
-//       icon: image,
-//     });
-//     // Try to set map position in the line below here
-//     // map.setCenter(marker.getPosition())
-//     // Add Info Window Tags to Markers
-//       '<h3>' + name + '</h3>' +
-//       '<p>Elevation of ' + elevation + ' feet.</p>' +
-//       '</div>'
-//     var infowindow = new google.maps.InfoWindow()
-//     google.maps.event.addListener(marker, 'click',
-//       function(marker, content, infowindow) {
-//         return function() {
-//           infowindow.setContent(content);
-//           infowindow.open(map, marker);
-//         };
-//       }(marker, content, infowindow));
-//   }
-// }
-
-
-// Add Initital Map Markers
+// Add map markers based on returned search criteria
 function addMarker() {
-  var marker, i
   for (var i = 0; i < peakArray.length; ++i) {
     var image = 'Assets/MountainFaviconBlue.png'
     var name = peakArray[i].attributes.peak_name;
@@ -152,18 +106,17 @@ function addMarker() {
       map: map,
       icon: image,
     });
-    // Try to set map position in the line below here
-    // map.setCenter(marker.getPosition())
-    // Add Info Window Tags to Markers
-    var content = '<div class="info_content">' +
+    let content = '<div class="info_content">' +
       '<h3>' + name + '</h3>' +
       '<p>Elevation of ' + elevation + ' feet.</p>' +
       '</div>'
-    var infowindow = new google.maps.InfoWindow()
+    let infowindow = new google.maps.InfoWindow()
     google.maps.event.addListener(marker, 'click', function(marker, content, infowindow) {
       return function() {
+        infowindow.close();
         infowindow.setContent(content);
-        infowindow.open(map, marker);
+        infowindow.open(map, this);
+        // changed to this keyword
       };
     }(marker, content, infowindow));
   }
