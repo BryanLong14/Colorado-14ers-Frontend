@@ -9,11 +9,4 @@ This app links users directly to Colorado Hiking routes on "14ers" (mountains wi
 <a href="https://github.com/BryanLong14/Colorado-14ers-Frontend">Frontend Client-side Code</a>
 <a href="https://peaceful-crag-92814.herokuapp.com/suggestions">See Suggestions and Comments</a> 
 
-![Alt Text](https://github.com/BryanLong14/Bryan-Multilayer-Parallax-Demo/blob/master/images/gif.gif)
-
-![Alt Text](https://gifs.com/gif/jqOZGy)
-
-
-![Alt Text](https://gifs.com/gif/14ers-search-tool-gif-jqOZGy)
-
-
+![Alt Text]https://github.com/BryanLong14/Colorado-14ers-Frontend/blob/master/Assets/gif.gif)
