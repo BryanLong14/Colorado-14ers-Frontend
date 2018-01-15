@@ -1,6 +1,5 @@
-// Removing API makes response time quicker
 const resp = mergedArray;
-// const mergedAPI = "https://peaceful-crag-92814.herokuapp.com/merged";
+const mergedAPI = "https://peaceful-crag-92814.herokuapp.com/merged";
 const form = document.getElementById("form");
 var peakList = document.querySelector(".peak-list");
 
@@ -25,12 +24,12 @@ function postForm(event) {
 
 // Access large mergedArray database
 function getData() {
-  //   fetch(mergedAPI)
-  //     .then(resp => resp.json())
-  //     .then(resp => {
+    fetch(mergedAPI)
+      .then(resp => resp.json())
+      .then(resp => {
   fetchData(resp);
-  // })
-  //     .catch(err => console.log(err));
+   })
+      .catch(err => console.log(err));
 }
 
 // Sort through returned mergedArray database according to user's input parameters (some peaks come up in two searches)
@@ -49,10 +48,7 @@ function fetchData(resp) {
   }
   createPeakCard()
   initMap()
-  // Bring next line back if we are going to creat bar charts
-  // initBarCharts()
 }
-
 
 // Populate returned data to start.html by creating a newPeakCard for each returned response
 function createPeakCard() {
@@ -134,28 +130,3 @@ function addMarker() {
     );
   }
 }
-
-// // Considering Entering Chart For Each Park That sShows
-//  function initBarCharts() {
-// google.charts.load('current', {'packages':['bar']});
-// // google.charts.setOnLoadCallback(createBarChart);
-//       function createBarChart() {
-//         var data = new google.visualization.arrayToDataTable([
-//           ['X-Axis Label Here', 'Current Peak\'s Route', 'Average Standard 14er Route'],
-//           ['Elevation Gain', 3, 4],
-//           ['Class (difficulty)', 4, 2.5],
-//           ['Exposure', 3, 4.3]
-//         ]);
-//
-//         var options = {
-//           // width: 400,
-//           chart: {
-//             title: 'Peak Name Here'
-//           },
-//           bars: 'vertical', // Required for Material Bar Charts.
-//         };
-//
-//       var chart = new google.charts.Bar(document.getElementById('chart_div'));
-//       chart.draw(data, options);
-//     };
-//   };
