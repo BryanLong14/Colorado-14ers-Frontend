@@ -24,12 +24,12 @@ function postForm(event) {
 
 // Access large mergedArray database
 function getData() {
-    fetch(mergedAPI)
-      .then(resp => resp.json())
-      .then(resp => {
+  fetch(mergedAPI)
+    .then(resp => resp.json())
+    .then(resp => {
   fetchData(resp);
    })
-      .catch(err => console.log(err));
+    .catch(err => console.log(err));
 }
 
 // Sort through returned mergedArray database according to user's input parameters (some peaks come up in two searches)
