@@ -9,10 +9,10 @@ var length;
 var distance;
 var peakArray = [];
 var marker;
+var mountainImage = "Assets/MountainFaviconBlue.png";
 
 //Get form input criteria from search.html
 form.addEventListener("submit", postForm);
-
 function postForm(event) {
   event.preventDefault();
   peakArray = [];
@@ -23,7 +23,7 @@ function postForm(event) {
   getData();
 }
 
-// // Access large mergedArray database
+// Access large mergedArray database
 function getData() {
   //   fetch(mergedAPI)
   //     .then(resp => resp.json())
@@ -99,7 +99,6 @@ function initMap() {
 // Add map markers based on returned search criteria
 function addMarker() {
   for (var i = 0; i < peakArray.length; ++i) {
-    var image = "Assets/MountainFaviconBlue.png";
     var name = peakArray[i].attributes.peak_name;
     var elevation = peakArray[i].attributes.elevation;
     var link = peakArray[i].new_attributes.link;
@@ -110,7 +109,7 @@ function addMarker() {
       title: name,
       position: latLng,
       map: map,
-      icon: image
+      icon: mountainImage
     });
     let content =
       "<div class=\"info_content\">" +
