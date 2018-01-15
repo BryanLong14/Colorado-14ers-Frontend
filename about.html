@@ -7,44 +7,25 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>14ers Search</title>
   <link rel="stylesheet" href="CSS/reset.css">
-<link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/style.css">
   <link rel="icon" href="Assets/MountainFaviconBlue.png" type="image/png">
 </head>
 
 <body>
   <div class="backgroundImage jumbotron2">
-    <h2>About 14ers Search Tool</h2>
-    <h4>
-    </h4>
-    <p>I created the database for this website by combining information from this <a href="https://github.com/kateheese/14er-api" target="_blank">14ers API</href></a> with route information from <a href="https://www.14ers.com/" target="_blank">14ers.com.</href></a>      The metholdology I used for sorting and returning search criteria is as follows:
-      <ul>
-        <li>Difficulty levels were grouped according to a combination of the class of the route and community consensus from <a href="https://www.14ers.com/routes_bydifficulty.php" target="_blank">14ers.com.</href></a> Class 1 routes and easy class 2 routes
-          get returned as "Easy". More difficult class 2 routes get returned as "Moderate" peaks, and class 3 and 4 routes get returned as "Hard". Obviously these ratings are subjective and are meant as a guide for hikers who are relatively new to the
-          sport.
-        </li>
-        <li>Elevation and peak ranking data was taken from <a href="https://www.14ers.com/photos/photos_14ers1.php" target="_blank">14ers.com.</href></a> Currently only the standard routes on each peak show up in the search results. I am considering adding
-          data for non-standard routes.</li>
-        <li>Sorting peaks based on distance from Denver is an obviously contentious decision. I decided to split the 14ers into two groups based on their distance from Denver simply because the majority of hikers who would use this tool live near the Front
-          Range. Some peaks (such as the Elk Mountains near Aspen) show up in both the "close" and "far" search criteria because their trailheads are right around the cutoff of 4 hours driving time.</li>
-        <li>Regarding the sorting methodology for "Length of Hike", I wanted users to have access to a wider range of routes, hence the distance overlap between categories. The distance breakdown, which is based on the roundtrip distance from trailhead to summit,
-          is as follows:
-          <ol>
-            <li>Shorter (less than 9 miles round-trip)</li>
-            <li>Medium (between 8 and 14 miles round-trip)</li>
-            <li>Longer (more than 13 miles round-trip)</li>
-          </ol>
-        </li>
+    <h2>About 14ers Search</h2>
+    <p>My name is Bryan Long, and I am a Full-Stack Web Developer from Denver, CO. In addition to hiking and skiing, I love photography and videography. You can see some of my work at <a href="https://www.bryanlongphotography.com/" target="_blank">my photography website.</a>      If you want to see other code I have written, <a href="https://github.com/BryanLong14" target="_blank">here is a link</a> to my GitHub Account. If you are interested in reading about the methodology I used for my search and database parameters for this site you can <a href="./methodology.html"> read about it here.</a>
     </p>
-    </ul>
   </div>
   <div class="mx-auto">
-    <form id="form" class="suggest" method="POST" action="#">
-      <label class="h4" for="suggestion">Suggest a Route or Ask the Developer a Question</label>
-      <textarea class="suggest" name="suggestion" rows="5"></textarea>
+    <img src="/Assets/BryanSkiing.jpg" alt="Photo of Bryan Hiking in Colorado" class="BryanSkiing">
+    <form id="form" class="suggest " method="POST" action="#">
+      <label class="h4 btn-margin1" for="suggestion">Suggest a Route or Ask the Developer a Question</label>
+      <textarea class="suggest " name="suggestion" rows="5"></textarea>
       <input id="suggestion" class="btn btn-success btn-margin1" type="submit" name="submit" value="Submit">
     </form>
     <p class="btn-outline-primary" id="response"></p>
-    <a href="./search.html" type="button" class="btn btn-outline-primary btn-margin1">Return to Find a Hike</a>
+    <a href="./search.html" type="button" class="btn btn-outline-primary">Return to Find a Hike</a><br>
   </div>
   <script type="text/javascript" src="JS/suggest.js"></script>
 </body>

@@ -1,6 +1,8 @@
-const mergedAPI = "https://peaceful-crag-92814.herokuapp.com/merged";
-const form = document.getElementById('form');
-var peakList = document.querySelector('.peak-list');
+// Removing API makes response time quicker
+const resp = mergedArray;
+// const mergedAPI = "https://peaceful-crag-92814.herokuapp.com/merged";
+const form = document.getElementById("form");
+var peakList = document.querySelector(".peak-list");
 
 var difficulty;
 var length;
@@ -8,29 +10,27 @@ var distance;
 var peakArray = [];
 var marker;
 
-
 //Get form input criteria from search.html
-form.addEventListener('submit', postForm);
+form.addEventListener("submit", postForm);
 
 function postForm(event) {
   event.preventDefault();
-  // Next two lines reset previous search criteria, emptying peakList
   peakArray = [];
-  peakList.innerHTML = '';
+  peakList.innerHTML = "";
   difficulty = event.target[0].value;
   length = event.target[1].value;
   distance = event.target[2].value;
   getData();
 }
 
-// Access large mergedArray database
+// // Access large mergedArray database
 function getData() {
-  fetch(mergedAPI)
-    .then(resp => resp.json())
-    .then(resp => {
-      fetchData(resp)
-    })
-    .catch(err => console.log(err));
+  //   fetch(mergedAPI)
+  //     .then(resp => resp.json())
+  //     .then(resp => {
+  fetchData(resp);
+  // })
+  //     .catch(err => console.log(err));
 }
 
 // Sort through returned mergedArray database according to user's input parameters (some peaks come up in two searches)
@@ -43,12 +43,19 @@ function fetchData(resp) {
       (resp[i].new_attributes.lengthOfHike === length ||
         resp[i].new_attributes.lengthOfHike2 === length)
     ) {
-      peakArray.push(resp[i])
-      document.querySelector('#map').style.display = ""
+      peakArray.push(resp[i]);
+      document.querySelector("#map").style.display = "";
     }
   }
+  createPeakCard()
+  initMap()
+  // Bring next line back if we are going to creat bar charts
+  // initBarCharts()
+}
 
-  // Populate returned data to start.html by creating a newPeakCard for each returned response
+
+// Populate returned data to start.html by creating a newPeakCard for each returned response
+function createPeakCard() {
   for (var i = 0; i < peakArray.length; i++) {
     var newPeakCard = document.createElement("div");
     newPeakCard.classList.add("form-style-1");
@@ -75,9 +82,6 @@ function fetchData(resp) {
   document.body.style.backgroundImage = "url('../Assets/1.png')";
   document.body.style.height = "auto";
   console.log(peakArray);
-
-  // Create the map here - function invocation
-  initMap()
 }
 
 // The Google Map Logic
@@ -87,15 +91,15 @@ function initMap() {
     zoom: 8,
     center: latlng,
     mapTypeId: "terrain"
-  }
+  };
   map = new google.maps.Map(document.getElementById("map"), myOptions);
-  addMarker(map, peakArray)
+  addMarker(map, peakArray);
 }
 
 // Add map markers based on returned search criteria
 function addMarker() {
   for (var i = 0; i < peakArray.length; ++i) {
-    var image = 'Assets/MountainFaviconBlue.png'
+    var image = "Assets/MountainFaviconBlue.png";
     var name = peakArray[i].attributes.peak_name;
     var elevation = peakArray[i].attributes.elevation;
     var link = peakArray[i].new_attributes.link;
@@ -106,20 +110,53 @@ function addMarker() {
       title: name,
       position: latLng,
       map: map,
-      icon: image,
+      icon: image
     });
-    let content = '<div class="info_content">' +
-      '<h3>' + name + '</h3>' +
-      '<p>Elevation of ' + elevation + ' feet.</p>' +
-      '</div>'
-    let infowindow = new google.maps.InfoWindow()
-    google.maps.event.addListener(marker, 'click', function(marker, content, infowindow) {
-      return function() {
-        infowindow.close();
-        infowindow.setContent(content);
-        infowindow.open(map, this);
-        // changed to this keyword
-      };
-    }(marker, content, infowindow));
+    let content =
+      "<div class=\"info_content\">" +
+      "<h3>" +
+      name +
+      "</h3>" +
+      "<p>Elevation of " +
+      elevation +
+      " feet.</p>" +
+      "</div>";
+    let infowindow = new google.maps.InfoWindow();
+    google.maps.event.addListener(
+      marker,
+      "click",
+      (function(marker, content, infowindow) {
+        return function() {
+          infowindow.close();
+          infowindow.setContent(content);
+          infowindow.open(map, this);
+        };
+      })(marker, content, infowindow)
+    );
   }
 }
+
+// // Considering Entering Chart For Each Park That sShows
+//  function initBarCharts() {
+// google.charts.load('current', {'packages':['bar']});
+// // google.charts.setOnLoadCallback(createBarChart);
+//       function createBarChart() {
+//         var data = new google.visualization.arrayToDataTable([
+//           ['X-Axis Label Here', 'Current Peak\'s Route', 'Average Standard 14er Route'],
+//           ['Elevation Gain', 3, 4],
+//           ['Class (difficulty)', 4, 2.5],
+//           ['Exposure', 3, 4.3]
+//         ]);
+//
+//         var options = {
+//           // width: 400,
+//           chart: {
+//             title: 'Peak Name Here'
+//           },
+//           bars: 'vertical', // Required for Material Bar Charts.
+//         };
+//
+//       var chart = new google.charts.Bar(document.getElementById('chart_div'));
+//       chart.draw(data, options);
+//     };
+//   };

@@ -6,7 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>14ers Search</title>
-  <script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {
+      packages: ["corechart", "bar"]
+    });
+  </script>
   <link rel="stylesheet" href="CSS/reset.css">
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="icon" href="Assets/MountainFaviconBlue.png" type="image/png">
@@ -18,7 +23,7 @@
     <h3>Demystifying the Difficulty of Colorado’s 14ers</h3>
     <p>Links you directly to 14er routes based on your desired difficulty, route length, and location so you can quickly choose a peak that’s a great fit for you... and your friends.</p>
   </div>
-  <form id="form" method="POST" class="mx-auto" style="width: 60%;">
+  <form id="form" method="POST" class="mx-auto">
     <!-- Drop down selector for difficulty -->
     <div class="form-group">
       <label class="label" for="difficulty">Difficulty</label>
@@ -51,14 +56,14 @@
     <div class="form-group">
       <button type="submit" class="btn btn-margin1 btn-success">Submit</button>
       <a href="./about.html" type="button" class="btn btn-margin1 btn-outline-primary">About</a>
-      <p class="label-margin2">More info about the search options</p>
     </div>
+    <!-- <div id="chart_div"></div> -->
     <div class="peak-list">
       <form class="" action="index.html" method="post">
       </form>
     </div>
   </form>
-  <div id="map" style="display:none">MapGoesHere</div>
+  <div id="map" style="display:none"></div>
   <script src="JS/mergedArray.js" charset="utf-8"></script>
   <script src="JS/app.js" charset="utf-8"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDWErLYINGTr_8DrLJAZrZpb0_Ur4tNPo"></script>

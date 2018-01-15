@@ -35,6 +35,6 @@ function postResponse(response) {
   responseShow.appendChild(newResponse);
 };
 
-function  removeResponse() {
+function removeResponse() {
   responseShow.innerHTML= "";
 };
