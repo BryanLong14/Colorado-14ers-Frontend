@@ -1,4 +1,4 @@
-# Can I Climb That? ReadMe
+# _Can I Climb That?_ ReadMe
 ## Colorado 14ers Hiking Frontend Repo
 
 This app links users directly to Colorado Hiking routes on "14ers" (mountains with an elevation higher than 14,000') based on users' desired difficulty, route length, and location so they can quickly choose a peak that’s a great fit for them. Read about the sorting and database methodology on the About page.
