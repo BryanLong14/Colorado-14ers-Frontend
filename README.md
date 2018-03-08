@@ -1,5 +1,5 @@
-<h1>Can I Climb That? ReadMe</h1>
-<h2>Colorado 14ers Hiking Frontend Repo</h2>
+# Can I Climb That? ReadMe
+## Colorado 14ers Hiking Frontend Repo
 
 This app links users directly to Colorado Hiking routes on "14ers" (mountains with an elevation higher than 14,000') based on users' desired difficulty, route length, and location so they can quickly choose a peak that’s a great fit for them. Read about the sorting and database methodology on the About page.
 
@@ -7,6 +7,12 @@ This app links users directly to Colorado Hiking routes on "14ers" (mountains wi
 
 <a href="https://github.com/BryanLong14/Colorado-14ers-Frontend">Frontend Client-side Code</a><br>
 
-<h2>App Demo</h2><br>
+## App Demo
 
 ![Demo Link](https://github.com/BryanLong14/Colorado-14ers-Frontend/blob/master/Assets/gif.gif)
+
+## Author
+BryanLong: https://github.com/bryanlong14
+
+## License
+MIT
