@@ -5,8 +5,6 @@ This app links users directly to Colorado Hiking routes on "14ers" (mountains wi
 
 <h2><a href="https://www.CanIClimbThat.pro/">Deployed App</a></h2>
 
-<a href="https://github.com/BryanLong14/Colorado-14ers-Frontend">Frontend Client-side Code</a><br>
-
 ## App Demo
 
 ![Demo Link](https://github.com/BryanLong14/Colorado-14ers-Frontend/blob/master/Assets/gif.gif)
